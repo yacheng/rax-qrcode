@@ -5,10 +5,10 @@ var _qr = _interopRequireDefault(require("qr.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getStyleProps(key, styles) {
-  var props = styles.split(";");
-  var value = "";
+  var props = styles.split(';');
+  var value = '';
   props.map(function (prop) {
-    var _prop$split = prop.split(":"),
+    var _prop$split = prop.split(':'),
         propKey = _prop$split[0],
         propValue = _prop$split[1];
 
@@ -20,17 +20,17 @@ function getStyleProps(key, styles) {
 }
 
 function getStyleNumber(styleProp) {
-  var rpxEndIndex = styleProp.indexOf("rpx");
+  var rpxEndIndex = styleProp.indexOf('rpx');
 
   if (rpxEndIndex > 0) {
     return styleProp.substring(0, rpxEndIndex);
   } else {
-    var pxEndIndex = styleProp.indexOf("px");
+    var pxEndIndex = styleProp.indexOf('px');
 
     if (pxEndIndex > 0) {
       return styleProp.substring(0, pxEndIndex);
     } else {
-      return "";
+      return '';
     }
   }
 }
@@ -43,12 +43,12 @@ Component({
     });
   },
   data: {
-    randomId: "qrid"
+    randomId: 'qrid'
   },
   props: {
     className: '',
     style: '',
-    data: ""
+    data: ''
   },
   didMount: function didMount() {
     var _this$props = this.props,
@@ -65,8 +65,8 @@ Component({
       return;
     }
 
-    var styleHeight = getStyleProps("height", style);
-    var styleWidth = getStyleProps("width", style);
+    var styleHeight = getStyleProps('height', style);
+    var styleWidth = getStyleProps('width', style);
     this.width = width || getStyleNumber(styleWidth) || 300;
     this.height = heigth || getStyleNumber(styleHeight) || 300;
     this.drawCode(data, options);
@@ -81,7 +81,7 @@ Component({
       var cells = codeData.modules;
       var tileWidth = this.width / cells.length;
       var tileHeight = this.height / cells.length;
-      var ctx = my.createCanvasContext(this.randomId || "qrid");
+      var ctx = my.createCanvasContext(this.randomId || 'qrid');
 
       for (var r = 0; r < cells.length; ++r) {
         var row = cells[r];
