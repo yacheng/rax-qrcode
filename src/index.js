@@ -1,4 +1,4 @@
-import {createElement, Component} from 'rax';
+import { createElement, Component } from 'rax';
 import Canvas from 'rax-canvas';
 import StyleSheet from 'universal-stylesheet';
 import qr from 'qr.js';
@@ -6,15 +6,15 @@ import qr from 'qr.js';
 class QRCode extends Component {
   constructor(props) {
     super(props);
-    const {style = {}} = props;
-    const {width = 300, height = 300} = style;
+    const { style = {} } = props;
+    const { width = 300, height = 300 } = style;
     this.width = width;
     this.height = height;
     this.canvas = null;
   }
 
   componentDidMount() {
-    const {data = '', options = {}} = this.props;
+    const { data = '', options = {} } = this.props;
     if (data === '') {
       return;
     }
@@ -22,7 +22,7 @@ class QRCode extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {data, options} = nextProps;
+    const { data, options = {} } = nextProps;
     if (data !== this.props.data) {
       this.drawCode(data, options);
     }
@@ -37,7 +37,7 @@ class QRCode extends Component {
       return;
     }
     const codeData = qr(data, options);
-    const {fillColor = '#000000', blankColor = '#ffffff'} = options;
+    const { fillColor = '#000000', blankColor = '#ffffff' } = options;
     const cells = codeData.modules;
     const tileWidth = this.width / cells.length;
     const tileHeight = this.height / cells.length;
@@ -55,7 +55,7 @@ class QRCode extends Component {
   }
 
   render() {
-    const {style} = this.props;
+    const { style } = this.props;
     return (
       <Canvas
         style={[styles.qrCode, style]}
