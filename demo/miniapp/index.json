@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "小程序Rax view 组件",
+  "defaultTitle": "小程序Rax qrcode 组件",
   "usingComponents": {
     "rax-qrcode": "../../src/miniapp/index"
   }
