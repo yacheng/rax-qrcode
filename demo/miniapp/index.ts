@@ -1,9 +1,4 @@
 Page({
-
-    data: {
-    },
-    onShow() {
-       
-    }
-    
+  data: {},
+  onShow() {}
 });
