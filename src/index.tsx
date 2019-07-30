@@ -1,6 +1,6 @@
-import { createElement, Component } from "rax";
-import Canvas from "rax-canvas";
-import qr from "qr.js";
+import { createElement, Component } from 'rax';
+import Canvas from 'rax-canvas';
+import qr from 'qr.js';
 
 export enum ErrorCorrectLevel {
   L = 1,
@@ -37,8 +37,8 @@ class QRCode extends Component<QRCodeProps, {}> {
   }
 
   public componentDidMount() {
-    const { data = "", options = {} } = this.props;
-    if (data !== "") {
+    const { data = '', options = {} } = this.props;
+    if (data !== '') {
       this.drawCode(data, options);
     }
   }
@@ -57,7 +57,7 @@ class QRCode extends Component<QRCodeProps, {}> {
   private drawCode = (data: string, options: QRCodeOptions) => {
     if (this.canvas) {
       const codeData = qr(data, options);
-      const { fillColor = "#000000", blankColor = "#ffffff" } = options;
+      const { fillColor = '#000000', blankColor = '#ffffff' } = options;
       const cells = codeData.modules;
       const tileWidth = this.width / cells.length;
       const tileHeight = this.height / cells.length;
